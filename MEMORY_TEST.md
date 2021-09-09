@@ -1,6 +1,6 @@
 # Observing Proxy Memory Under Load
 Once you have deployed the workloads using `deploy.sh`, start the linkerd
-dashboard with the `linkerd viz stat` command.
+dashboard with the `linkerd viz dashboard` command.
 
 From there:
 - click on the grafana icon to the right of the `bb-terminus`
