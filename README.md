@@ -63,3 +63,4 @@ read [MEMORY_TEST.md](MEMORY_TEST)
 - Add more slow_cooker types to slowly scale load
 - Make cpu and memory limits configurable
 - write better bash
+- make it heaptrack-able
