@@ -57,4 +57,9 @@ and respond after a 100ms delay:
 ```
 
 To test the behavior described in [this issue](https://github.com/linkerd/linkerd2/issues/6441)
-read [MEMORY_TEST.md](MEMORY_TEST.md)
+read [MEMORY_TEST.md](MEMORY_TEST)
+
+# Future Work
+- Add more slow_cooker types to slowly scale load
+- Make cpu and memory limits configurable
+- write better bash
