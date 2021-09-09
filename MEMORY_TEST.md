@@ -22,5 +22,10 @@ in the nginx-ingress and bb-terminus pods:
 
 ![baseline memory usage](/images/memory-graph.png)
 
-Add another instance of slow cooker which sends 600k RPS:
-- `kubectl apply -f k8s/slow-cooker-600k.yml`
+Add another `Deployment` of slow cooker which sends 100k RPS:
+- `kubectl apply -f k8s/slow-cooker-100k.yml`
+
+Observe that the linkerd-proxy injected into the ingress controller reaches the
+maximum `resources.memory.limit` value and the container is restarted
+
+![memory at 100k QPS](images/loaded-memory.png)
