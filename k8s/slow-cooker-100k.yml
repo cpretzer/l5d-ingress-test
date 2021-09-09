@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slow-cooker-600k
+  namespace: backpressure-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slow-cooker-600k
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: disabled
+      labels:
+        app: slow-cooker-600k
+    spec:
+      containers:
+      - name: slow-cooker
+        image: buoyantio/slow_cooker:latest
+        args:
+        - "-concurrency=10000"
+        - "-interval=30s"
+        - "-noLatencySummary"
+        - "-qps=100"
+        - "http://ingress-nginx-controller.ingress-nginx"
+        ports:
+        - name: metrics
+          containerPort: 8505
